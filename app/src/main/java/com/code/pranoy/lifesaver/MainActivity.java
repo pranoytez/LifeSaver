@@ -1,6 +1,8 @@
 package com.code.pranoy.lifesaver;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -42,10 +44,15 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id){
+            case R.id.action_settings:
+                startActivityForResult(new Intent(Settings.ACTION_SETTINGS),0);
+
+            case R.id.about:
+                startActivityForResult(new Intent(Settings.ACTION_SETTINGS),0);
         }
+
+
 
         return super.onOptionsItemSelected(item);
     }
